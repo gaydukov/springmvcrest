@@ -28,4 +28,6 @@ public class WordServiceImpl implements WordService {
 
         wordRepository.delete(id);
     }
+
+
 }
