@@ -16,7 +16,13 @@ public class Word {
     @Column(name = "word_en",nullable = false)
     private String word_en;
 
+    public Word(String word_ru, String word_en) {
+        this.word_ru = word_ru;
+        this.word_en = word_en;
+    }
+
     public Word() {
+
     }
 
     public long getId() {

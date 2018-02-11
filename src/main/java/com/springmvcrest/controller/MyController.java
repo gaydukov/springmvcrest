@@ -6,6 +6,7 @@ import com.springmvcrest.service.WordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -16,7 +17,14 @@ public class MyController {
     @Autowired
     private WordService service;
 
-    @RequestMapping(value = "/words",method = RequestMethod.GET)
+    @RequestMapping (value = "/", method = RequestMethod.GET)
+    //@ResponseBody
+    public ModelAndView Home(){
+        return new ModelAndView("home","Word",new Word());
+    }
+
+    //@RequestMapping(value = "/words",method = RequestMethod.GET)
+    @GetMapping(value ="/words")
     @ResponseBody
     public List<Word> getAllWords (){
         List<Word> words=service.getAll();
@@ -30,8 +38,8 @@ public class MyController {
     }
 
     @RequestMapping(value = "/words",method = RequestMethod.POST)
-    @ResponseBody
-    public Word saveWord (@RequestBody Word word){
+    //@ResponseBody
+    public Word saveWord ( Word word){
         return service.save(word);
     }
 
