@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page session="false"%>
 <html>
 <head>
@@ -15,6 +16,7 @@
 
 <form:form method="post" commandName="Word" action="/words" >
     <table>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <tr>
             <td>Russian word:</td>
             <td><form:input path="word_ru"/></td>

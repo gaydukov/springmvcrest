@@ -18,7 +18,7 @@ public class MyController {
     private WordService service;
 
     @RequestMapping (value = "/", method = RequestMethod.GET)
-    //@ResponseBody
+
     public ModelAndView Home(){
         return new ModelAndView("home","Word",new Word());
     }
