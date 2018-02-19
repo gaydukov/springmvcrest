@@ -3,10 +3,13 @@ package com.springmvcrest.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "word")
-public class Word {
+public class Word implements Serializable{
+    private static final long serialVersionUID = -5527566248002296042L;
+
     @Id
     @GeneratedValue(generator = "increment")
     @GenericGenerator(name = "increment", strategy = "increment")

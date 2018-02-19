@@ -18,13 +18,13 @@ public class MyController {
     private WordService service;
 
     @RequestMapping (value = "/", method = RequestMethod.GET)
-
+    @ResponseBody
     public ModelAndView Home(){
         return new ModelAndView("home","Word",new Word());
     }
 
-    //@RequestMapping(value = "/words",method = RequestMethod.GET)
-    @GetMapping(value ="/words")
+    @RequestMapping(value = "/words",method = RequestMethod.GET)
+    //@GetMapping(value ="/words")
     @ResponseBody
     public List<Word> getAllWords (){
         List<Word> words=service.getAll();
@@ -37,9 +37,9 @@ public class MyController {
         return service.getById(wordId);
     }
 
-    @RequestMapping(value = "/words",method = RequestMethod.POST)
+    @RequestMapping(value = "/words",method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     //@ResponseBody
-    public Word saveWord ( Word word){
+    public Word saveWord (@ModelAttribute("Word") Word word){
         return service.save(word);
     }
 
