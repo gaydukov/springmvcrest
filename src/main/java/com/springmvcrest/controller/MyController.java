@@ -37,7 +37,7 @@ public class MyController {
         return service.getById(wordId);
     }
 
-    @RequestMapping(value = "/words",method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    @RequestMapping(value = "/words",method = RequestMethod.POST)
     //@ResponseBody
     public Word saveWord (@ModelAttribute("Word") Word word){
         return service.save(word);
